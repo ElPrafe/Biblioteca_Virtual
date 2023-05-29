@@ -3,12 +3,15 @@
 {include file="form_alta.tpl"}
 
 
-<ul>
-    {foreach from=$authors item=$author}        
-            <span> <b>{$author->nombre}</b> - <img src='{$author->img_autor}'> -{$author->fecha_nac} ( {$author->nacionalidad}) </span>
-        </li>
+<div class="row justify-content-md-center">
+    {foreach from=$authors item=$author}
+    <div class="col col-lg-4">
+    <span> {$author->nombre} - <img src='{$author->img_autor}'class="img-fluid "> -{$author->fecha_nac} ( {$author->nacionalidad}) </span>
+    </div>
     {/foreach}
-</ul>
+</div>
+
+
 
 
 {include file="footer.tpl"}
