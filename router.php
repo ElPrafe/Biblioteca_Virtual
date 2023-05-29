@@ -28,7 +28,10 @@ switch ($params[0]) {
         // obtengo el parametro de la acción
         $id = $params[1];
         $libraryController->deleteAuthor($id);
-        break;    
+        break;   
+    case 'login':
+        $libraryController->login();
+        break;
     default:
         echo('404 Page not found');
         break;

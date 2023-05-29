@@ -17,4 +17,9 @@ class LibraryView {
         // mostrar el tpl
         $this->smarty->display('library.list.tpl');
     }
+
+    function showLogin() {
+        // mostrar el tpl
+        $this->smarty->display('login.tpl');
+    }
 }

@@ -41,4 +41,4 @@
     </header>
 
     <!-- inicio main container -->
-    <main class="container">
+    <div class="container">

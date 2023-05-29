@@ -20,6 +20,9 @@ class LibraryController {
         $this->view->showAuthors($authors);
     }
 
+    public function login() {
+        $this->view->showLogin();
+    }
     
     function addAuthor() {
         // TODO: validar entrada de datos
