@@ -1,5 +1,6 @@
 {include file="header.tpl"}
 <!-- formulario de alta de tarea -->
+<div >
 <form>
     <!-- Email input -->
     <div class="form-outline mb-4">
@@ -53,5 +54,6 @@
         </button>
     </div>
 </form>
+</div>
 
 {include file="footer.tpl"}
