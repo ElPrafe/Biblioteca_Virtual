@@ -1,5 +1,7 @@
 <?php
-require_once './app/controllers/library.controller.php';
+require_once './app/controllers/author.controller.php';
+require_once './app/controllers/book.controller.php';
+require_once './app/controllers/login.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -8,29 +10,31 @@ if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }
 
-// parsea la accion Ej: dev/juan --> ['dev', juan]
+
 $params = explode('/', $action);
 
 // instancio el unico controller que existe por ahora
-$libraryController = new LibraryController();
+$authorController = new AuthorController();
+$bookController = new BookController();
+$loginController = new LoginController();
 
 
 // tabla de ruteo
 switch ($params[0]) {
     case 'index':
 
-        $libraryController->showLibrary();        
+        $authorController->showAuthors();        
         break;
     case 'add':
-        $libraryController->addAuthor();
+        $authorController->addAuthor();
         break;
     case 'delete':
         // obtengo el parametro de la acción
         $id = $params[1];
-        $libraryController->deleteAuthor($id);
+        $authorController->deleteAuthor($id);
         break;   
     case 'login':
-        $libraryController->login();
+        $loginController->login();
         break;
     default:
         echo('404 Page not found');

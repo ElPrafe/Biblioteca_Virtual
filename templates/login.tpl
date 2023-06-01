@@ -1,7 +1,7 @@
 {include file="header.tpl"}
 <!-- formulario de alta de tarea -->
-<div >
-<form>
+<div class="mt-5">
+<form action="loginAttempt">
     <!-- Email input -->
     <div class="form-outline mb-4">
         <input type="email" id="form2Example1" class="form-control" />
