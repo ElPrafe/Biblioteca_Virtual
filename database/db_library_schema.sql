@@ -27,22 +27,22 @@ CREATE TABLE IF NOT EXISTS `autor` (
   `nacionalidad` varchar(50) NOT NULL DEFAULT '',
   `fecha_nac` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8;
 
 -- La exportación de datos fue deseleccionada.
 
 -- Volcando estructura para tabla db_library.libro
 CREATE TABLE IF NOT EXISTS `libro` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `titulo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `genero` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `titulo` varchar(50) NOT NULL,
+  `descripcion` text,
+  `genero` text NOT NULL,
   `img_tapa` text,
   `id_autor` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_autor` (`id_autor`),
   CONSTRAINT `id_autor` FOREIGN KEY (`id_autor`) REFERENCES `autor` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20;
 
 -- La exportación de datos fue deseleccionada.
 
