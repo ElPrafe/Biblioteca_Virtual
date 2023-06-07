@@ -1,14 +1,20 @@
 <?php
 require_once './app/models/author.model.php';
 require_once './app/views/author.view.php';
+require_once './app/models/book.model.php';
+require_once './app/views/book.view.php';
 
 class AuthorController {
     private $model;
     private $view;
+    private $modelBook;
+    private $viewBook;
 
     public function __construct() {
         $this->model = new AuthorModel();
         $this->view = new AuthorView();
+        $this->modelBook = new BookModel();
+        $this->viewBook = new BookView();
     }
 
     public function showAuthors() {
@@ -16,9 +22,12 @@ class AuthorController {
         $this->view->showAuthors($authors);
     }
 
-    public function showAuthor() {
-        $author = $this->model->getAuthor();
-        $this->view->showAuthor($author);
+    public function showAuthor($id) {
+        
+        $author = $this->model->getAuthor($id);   
+        $books = $this->modelBook->getBooksByID($id);
+        $this->view->showAuthor($author,$books);
+        
     }
 
     

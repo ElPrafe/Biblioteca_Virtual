@@ -24,12 +24,12 @@ class AuthorModel {
         return $authors;//VER COMO DEVOLVER SUS LIBROS
     }
 
-    public function getAuthor() {
+    public function getAuthor($id) {
         // 1. abro conexión a la DB
         // ya esta abierta por el constructor de la clase
         // 2. ejecuto la sentencia (2 subpasos)
-        $query = $this->db->prepare("SELECT * FROM autor");
-        $query->execute();
+        $query = $this->db->prepare("SELECT * FROM autor where id = ?");
+        $query->execute([$id]);
         // 3. obtengo los resultados
         $author = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos        
         return $author;

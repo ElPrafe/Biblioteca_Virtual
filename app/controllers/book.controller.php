@@ -11,9 +11,9 @@ class BookController {
         $this->view = new BookView();
     }
 
-    public function showBook() {
-        $book = $this->model->getBook();
-        $this->view->showBook($author);
+    public function showBook($id) {
+        $book = $this->model->getBook($id);
+        $this->view->showBook($book);
     }
     public function showBooks() {
         $books = $this->model->getBooks();

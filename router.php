@@ -22,9 +22,17 @@ $loginController = new LoginController();
 // tabla de ruteo
 switch ($params[0]) {
     case 'index':
-
         $authorController->showAuthors();        
         break;
+    case 'author':
+        $authorController->showAuthor($params[1]);        
+        break;    
+    case 'book':     
+        $bookController->showBook($params[1]);        
+        break;    
+    case 'books':     
+        $bookController->showBooks();        
+        break;    
     case 'add':
         $authorController->addAuthor();
         break;

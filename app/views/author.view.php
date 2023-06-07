@@ -15,4 +15,11 @@ class AuthorView {
         // mostrar el tpl
         $this->smarty->display('author.list.tpl');
     }
+    function showAuthor($author,$books) {
+        // asigno variables al tpl smarty               
+        $this->smarty->assign('authors', $author);
+        $this->smarty->assign('books', $books);
+        // mostrar el tpl
+        $this->smarty->display('author.details.tpl');
+    }
 }

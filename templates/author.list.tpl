@@ -7,7 +7,7 @@
                 <div class="caja_descripcion row col">
                     <h4 class="titulo_tarjeta">
                         {if $author->img_autor!=null}
-                            <a href="{$author->img_autor}">{$author->nombre}</a>
+                            <a href='author/{$author->id}'>{$author->nombre}</a>
                         {else}
                             {$author->nombre}
                         {/if}
