@@ -1,3 +1,39 @@
-img{
-    max-height: 300px;
+
+html,body{
+    width: 100%;
+    margin:0px;
+    padding:0px;
+}
+
+.container {
+    margin:0px;
+    padding:0px;
+}
+
+.caja_autores {
+    padding:0px;
+    width:50%;
+
+}
+
+.caja_autor {
+    padding:10px;
+    border-bottom: 1px dashed;
+    border-right: 1px dashed;
+    align-items: center;
+}
+
+.caja_descripcion {
+    max-width: 83%;
+    margin:0px;
+    padding:0px;
+}
+
+.img_autor{
+    margin:0px;
+    padding:0px;
+    max-width: 17%;
+    max-height: 80px;
+    min-height: 80px;
+    min-width: 17%;
 }
