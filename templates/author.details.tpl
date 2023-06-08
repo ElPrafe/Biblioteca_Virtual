@@ -22,7 +22,7 @@
                 <div class="caja_descripcion row col">
                     <h4 class="titulo_tarjeta">
                         {if $book->img_tapa!=null}
-                            <a href="book/{$book->id}">{$book->titulo}</a>
+                            <a href="book/id/{$book->id}">{$book->titulo}</a>
                         {else}
                             {$book->titulo}
                         {/if}

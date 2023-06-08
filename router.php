@@ -5,7 +5,7 @@ require_once './app/controllers/login.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
-$action = 'index'; // acción por defecto
+$action = 'author/all'; // acción por defecto
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }
@@ -21,26 +21,42 @@ $loginController = new LoginController();
 
 // tabla de ruteo
 switch ($params[0]) {
-    case 'index':
-        $authorController->showAuthors();        
-        break;
     case 'author':
-        $authorController->showAuthor($params[1]);        
-        break;    
-    case 'book':     
-        $bookController->showBook($params[1]);        
-        break;    
-    case 'books':     
-        $bookController->showBooks();        
-        break;    
-    case 'add':        
-        $authorController->addAuthor();
-        break;
-    case 'delete':
-        // obtengo el parametro de la acción
-        $id = $params[1];
-        $authorController->deleteAuthor($id);
-        break;   
+        switch ($params[1]) {
+            case 'all':
+                $authorController->showAuthors();  
+                break;
+            case 'id':
+                $authorController->showAuthor($params[2]);   
+                break;
+            case 'add':
+                $authorController->addAuthor(); 
+                break;
+            case 'edit':
+                $authorController->showAuthors();  
+                break;
+            case 'delete':
+                $id = $params[2];
+                $authorController->deleteAuthor($id); 
+                break;            
+            default:
+                echo('404 Page not found');
+                break;
+        }              
+        break;  
+    case 'book':
+        switch ($params[1]) {
+            case 'all':
+                $bookController->showBooks(); 
+                break;
+            case 'id':
+                $bookController->showBook($params[2]); 
+                break;
+            default:
+            echo('404 Page not found');
+                break;
+        }     
+        break; 
     case 'login':
         $loginController->login();
         break;

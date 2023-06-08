@@ -7,7 +7,7 @@
                 <div class="caja_descripcion row col">
                     <h4 class="titulo_tarjeta">
                         {if $author->img_autor!=null}
-                            <a href='author/{$author->id}'>{$author->nombre}</a>
+                            <a href='author/id/{$author->id}'>{$author->nombre}</a>
                         {else}
                             {$author->nombre}
                         {/if}
@@ -17,11 +17,14 @@
 
                     <img class="img_autor col" src="{$author->img_autor}"></img>
             </div>
-            {if $logged}
-                <p>Borrar</p>
+            {if true}                
+                <a class="btn btn-warning btn-sm" href="login" role="button">Borrar Autor</a>       
+                <a class="btn btn-danger btn-sm" href="login" role="button">Editar Autor</a>               
             {/if}
         {/if}
     {/foreach}
 </div>
+
+
 
 {include file="footer.tpl"}

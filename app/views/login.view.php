@@ -8,8 +8,9 @@ class LoginView {
         $this->smarty = new Smarty(); // inicializo Smarty
     }    
 
-    function showLogin() {
+    function showLogin($logged) {
         // mostrar el tpl
+        $this->smarty->assign('logged', $logged);
         $this->smarty->display('login.tpl');
     }
     

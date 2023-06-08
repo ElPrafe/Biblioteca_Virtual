@@ -1,30 +1,34 @@
 <?php
 require_once './app/models/book.model.php';
 require_once './app/views/book.view.php';
+require_once 'helpers/auth.helper.php';
 
 class BookController {
     private $model;
     private $view;
+    private $authHelper;
 
     public function __construct() {
         $this->model = new BookModel();
         $this->view = new BookView();
+        $this->authHelper = new AuthHelper();
     }
 
     public function showBook($id) {
-        $book = $this->model->getBook($id);
-        $logged = false;
+        $logged = $this->authHelper->isLoggedIn();
+        $book = $this->model->getBook($id);        
         $this->view->showBook($book,$logged);
     }
     public function showBooks() {
+        $logged = $this->authHelper->isLoggedIn();
         $books = $this->model->getBooks();
-        $this->view->showBooks($books);
+        $this->view->showBooks($books, $logged);
     }
 
     
     public function addBook() {
         // TODO: validar entrada de datos
-
+        $this->authHelper->checkLoggedIn();
         $title = $_POST['title'];
         $desc = $_POST['desc'];
         $genre = $_POST['genre'];
@@ -36,11 +40,13 @@ class BookController {
     }
    
     public function deleteBook($id) {//ver que pasa con sus libros asociados
+        $this->authHelper->checkLoggedIn();
         $this->model->deleteBookById($id);
         header("Location: " . BASE_URL);
     }  
     
     public function editBookById($id) {
+        $this->authHelper->checkLoggedIn();
         
     }
 

@@ -16,21 +16,30 @@
   <header>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark ">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index">HOME</a>
+        <a class="navbar-brand" href="author/all">Autores</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="mynavbar">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link" href="books">Books</a>
+              <a class="nav-link" href="book/all">Libros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login">Login</a>
+            {if $logged}
+                <a class="nav-link" href="logout">Desconectarse</a>
+              {else}
+                <a class="nav-link" href="login">Ingresar</a>
+            {/if}              
             </li>
-            <li class="nav-item">
-              <a class="nav-link" h>Link</a>
+            {if $logged}
+            <li class="nav-item">            
+              <a class="nav-link" href="author/add">Agregar Autor</a>
             </li>
+            <li class="nav-item">            
+              <a class="nav-link" href="book/add">Agregar Libro</a>
+            </li>
+            {/if}
           </ul>
           <form class="d-flex">
             <input class="form-control me-2" type="text" placeholder="Search">

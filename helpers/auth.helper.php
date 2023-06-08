@@ -7,6 +7,7 @@ class AuthHelper {
         // INICIO LA SESSION Y LOGUEO AL USUARIO
         session_start();        
         $_SESSION['USERNAME'] = $user->usuario;
+        $_SESSION['LAST_ACTIVITY'] = time();
     }
 
     public function logout() {
@@ -14,20 +15,26 @@ class AuthHelper {
         session_destroy();
     }
 
-    public function checkLoggedIn() {
-        
+    public function checkLoggedIn() {        
         session_start();
-        if (!isset($_SESSION['ID_USER'])) {
+        if (!isset($_SESSION['USERNAME'])) {
             header('Location: ' . 'login');
             die();
         } 
     }
     public function isLoggedIn() {
         session_start();
-        if (!isset($_SESSION['USERNAME'])) {            
+        if (!isset($_SESSION['USERNAME'])) {                   
             return false;
-        }       
+        } 
+        
+        if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {             
+            session_destroy(); // destruye la sesión, y vuelve al login
+            return false;
+        } 
+        $_SESSION['LAST_ACTIVITY'] = time();
         return true;
+
     }
 
     public function getLoggedUserName() {

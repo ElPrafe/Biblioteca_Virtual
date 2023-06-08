@@ -6,7 +6,7 @@
             <div class="caja_autor row">
                 <div class="caja_descripcion row col">
                     <h4 class="titulo_tarjeta">                        
-                        <a href='book/{$book->id}'>{$book->titulo}</a>                                               
+                        <a href='book/id/{$book->id}'>{$book->titulo}</a>                                               
                     </h4>
                     <h3>{$book->genero}</h3>                    
                 </div>

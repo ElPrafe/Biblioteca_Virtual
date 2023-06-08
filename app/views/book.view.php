@@ -8,11 +8,12 @@ class BookView {
         $this->smarty = new Smarty(); // inicializo Smarty
     }
 
-    function showBooks($books) {
+    function showBooks($books, $logged) {
         // asigno variables al tpl smarty        
         
         $this->smarty->assign('count', count($books)); 
         $this->smarty->assign('books', $books);
+        $this->smarty->assign('logged', $logged);
         // mostrar el tpl
         $this->smarty->display('books.list.tpl');
     }

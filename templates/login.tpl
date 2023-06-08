@@ -54,7 +54,7 @@
             <i class="fab fa-github"></i>
         </button>
     </div>
-
-</div> *}
+*}
+</div> 
 
 {include file="footer.tpl"}

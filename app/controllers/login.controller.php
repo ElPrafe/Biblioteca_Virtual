@@ -16,7 +16,8 @@ class LoginController {
 
 
     public function login() {
-        $this->view->showLogin();
+        $logged = $this->authHelper->isLoggedIn();
+        $this->view->showLogin($logged);
     }
     
     public function loginAttempt(){

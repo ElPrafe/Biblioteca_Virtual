@@ -21,9 +21,7 @@ class AuthorController {
         $this->authHelper = new AuthHelper();
     }
 
-    public function showAuthors() {
-        session_start();
-        session_destroy();
+    public function showAuthors() {        
               
         $logged = $this->authHelper->isLoggedIn();
         $authors = $this->model->getAuthors();
@@ -34,16 +32,17 @@ class AuthorController {
 
     public function showAuthor($id) {
         
+        $logged = $this->authHelper->isLoggedIn();
         $author = $this->model->getAuthor($id);   
         $books = $this->modelBook->getBooksByID($id);
-        $this->view->showAuthor($author,$books);
+        $this->view->showAuthor($author,$books, $logged);
         
     }
 
     
     function addAuthor() {
         // TODO: validar entrada de datos
-
+        $this->authHelper->checkLoggedIn();
         $name = $_POST['name'];
         $img= $_POST['img'];
         $date = $_POST['date'];
@@ -54,11 +53,14 @@ class AuthorController {
     }
    
     function deleteAuthor($id) {//ver que pasa con sus libros asociados
+        $this->authHelper->checkLoggedIn();
+
         $this->model->deleteAuthorById($id);
         header("Location: " . BASE_URL);
     }  
 
     public function editAuthorById($id) {
+        $this->authHelper->checkLoggedIn();
         
     }
 
