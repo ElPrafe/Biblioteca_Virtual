@@ -44,6 +44,11 @@ switch ($params[0]) {
     case 'login':
         $loginController->login();
         break;
+    case 'loginAttempt':
+        
+        $loginController->loginAttempt();
+
+        break;
     default:
         echo('404 Page not found');
         break;

@@ -12,4 +12,5 @@ class LoginView {
         // mostrar el tpl
         $this->smarty->display('login.tpl');
     }
+    
 }

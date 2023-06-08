@@ -31,7 +31,7 @@ class AuthorModel {
         $query = $this->db->prepare("SELECT * FROM autor where id = ?");
         $query->execute([$id]);
         // 3. obtengo los resultados
-        $author = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos        
+        $author = $query->fetch(PDO::FETCH_OBJ); // devuelve un arreglo de objetos        
         return $author;
     }
 

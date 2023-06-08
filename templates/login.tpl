@@ -1,20 +1,22 @@
 {include file="header.tpl"}
 <!-- formulario de alta de tarea -->
 <div class="mt-5">
-<form action="loginAttempt">
+<form action="loginAttempt" method="POST">
     <!-- Email input -->
     <div class="form-outline mb-4">
-        <input type="email" id="form2Example1" class="form-control" />
-        <label class="form-label" for="form2Example1">Email address</label>
+        <input type="text" name="username" id="form2Example1" class="form-control" required/>
+        <label class="form-label" for="form2Example1">Usuario</label>
     </div>
 
     <!-- Password input -->
     <div class="form-outline mb-4">
-        <input type="password" id="form2Example2" class="form-control" />
-        <label class="form-label" for="form2Example2">Password</label>
+        <input type="password" name="password" id="form2Example2" class="form-control" required/>
+        <label class="form-label" for="form2Example2">Contraseña</label>
     </div>
-
-    <!-- 2 column grid layout for inline styling -->
+     <!-- Submit button -->
+     <button type="submit" class="btn btn-primary btn-block mb-4">Ingresar</button>
+    </form>
+{*     <!-- 2 column grid layout for inline styling -->
     <div class="row mb-4">
         <div class="col d-flex justify-content-center">
             <!-- Checkbox -->
@@ -30,8 +32,7 @@
         </div>
     </div>
 
-    <!-- Submit button -->
-    <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+   
 
     <!-- Register buttons -->
     <div class="text-center">
@@ -53,7 +54,7 @@
             <i class="fab fa-github"></i>
         </button>
     </div>
-</form>
-</div>
+
+</div> *}
 
 {include file="footer.tpl"}

@@ -44,7 +44,7 @@ class BookModel {
         $query = $this->db->prepare("SELECT * FROM libro where id=?");
         $query->execute([$id]);
         // 3. obtengo los resultados
-        $book = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos        
+        $book = $query->fetch(PDO::FETCH_OBJ); // devuelve un arreglo de objetos        
         return $book;
     }
 

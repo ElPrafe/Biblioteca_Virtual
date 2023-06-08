@@ -4,6 +4,7 @@ require_once './app/views/author.view.php';
 require_once './app/models/book.model.php';
 require_once './app/views/book.view.php';
 
+
 class AuthorController {
     private $model;
     private $view;
@@ -20,6 +21,8 @@ class AuthorController {
     public function showAuthors() {
         $authors = $this->model->getAuthors();
         $this->view->showAuthors($authors);
+        
+    
     }
 
     public function showAuthor($id) {

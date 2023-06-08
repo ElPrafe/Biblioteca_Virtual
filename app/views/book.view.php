@@ -18,10 +18,8 @@ class BookView {
         $this->smarty->display('books.list.tpl');
     }
     function showBook($book) {
-        // asigno variables al tpl smarty        
-        
-        $this->smarty->assign('count', count($book)); 
-        $this->smarty->assign('books', $book);
+        // asigno variables al tpl smarty                
+        $this->smarty->assign('book', $book);
 
         // mostrar el tpl
         $this->smarty->display('book.details.tpl');

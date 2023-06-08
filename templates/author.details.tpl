@@ -4,15 +4,15 @@
     <div class="caja_autor row">
         <div class="caja_descripcion row col">
             <h4 class="titulo_tarjeta">
-                {if $authors[0]->img_autor!=null}
-                    <a>{$authors[0]->nombre}</a>
+                {if $author->img_autor!=null}
+                    <a>{$author->nombre}</a>
                 {else}
-                    {$authors[0]->nombre}[]
+                    {$author->nombre}[]
                 {/if}
             </h4>
-            <p>{$authors[0]->fecha_nac} - ( {$authors[0]->nacionalidad})</p>
+            <p>{$author->fecha_nac} - ( {$author->nacionalidad})</p>
         </div>
-        <img class="img_autor col" src="{$authors[0]->img_autor}"></img>
+        <img class="img_autor col" src="{$author->img_autor}"></img>
     </div>
 </div>
 <div class="caja_autores justify-content-md-start">
