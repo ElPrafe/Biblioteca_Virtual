@@ -33,7 +33,7 @@ switch ($params[0]) {
     case 'books':     
         $bookController->showBooks();        
         break;    
-    case 'add':
+    case 'add':        
         $authorController->addAuthor();
         break;
     case 'delete':

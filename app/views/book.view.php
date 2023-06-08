@@ -13,14 +13,14 @@ class BookView {
         
         $this->smarty->assign('count', count($books)); 
         $this->smarty->assign('books', $books);
-
         // mostrar el tpl
         $this->smarty->display('books.list.tpl');
     }
-    function showBook($book) {
+
+    function showBook($book, $logged) {
         // asigno variables al tpl smarty                
         $this->smarty->assign('book', $book);
-
+        $this->smarty->assign('logged', $logged);
         // mostrar el tpl
         $this->smarty->display('book.details.tpl');
     }

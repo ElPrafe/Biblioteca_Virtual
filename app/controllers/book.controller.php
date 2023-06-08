@@ -13,7 +13,8 @@ class BookController {
 
     public function showBook($id) {
         $book = $this->model->getBook($id);
-        $this->view->showBook($book);
+        $logged = false;
+        $this->view->showBook($book,$logged);
     }
     public function showBooks() {
         $books = $this->model->getBooks();

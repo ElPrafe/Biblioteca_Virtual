@@ -17,6 +17,9 @@
 
                     <img class="img_autor col" src="{$author->img_autor}"></img>
             </div>
+            {if $logged}
+                <p>Borrar</p>
+            {/if}
         {/if}
     {/foreach}
 </div>

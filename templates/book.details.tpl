@@ -1,6 +1,9 @@
 {include file="header.tpl"}
 
 <div class="caja_autores justify-content-md-start">
+    {if $logged}
+        <p>Hola</p>
+    {{/if}}
 
             <div class="caja_autor row">
                 <div class="caja_descripcion row col">

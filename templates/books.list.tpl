@@ -8,10 +8,8 @@
                     <h4 class="titulo_tarjeta">                        
                         <a href='book/{$book->id}'>{$book->titulo}</a>                                               
                     </h4>
-                    <h3>{$book->genero}</h3>
-                    
+                    <h3>{$book->genero}</h3>                    
                 </div>
-
                     <img class="img_autor col" src="{$book->img_tapa}"></img>
             </div>
         {/if}
