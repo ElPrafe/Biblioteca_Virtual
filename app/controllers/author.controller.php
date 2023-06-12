@@ -40,11 +40,11 @@ class AuthorController {
     }
 
     
-    function addAuthorScreen() {        
+    public function addAuthorScreen() {        
         $this->authHelper->checkLoggedIn();//Si no esta loggeado corta la ejecucion        
         $this->view->showAddAuthor();        
     }
-    function addAuthor() {        
+    public function addAuthor() {        
         $this->authHelper->checkLoggedIn();//Si no esta loggeado corta la ejecucion        
         $name = $_POST['name'];
         $img= $_POST['img'];
@@ -60,7 +60,7 @@ class AuthorController {
         
     }
    
-    function deleteAuthor($id) {//ver que pasa con sus libros asociados
+    public function deleteAuthor($id) {//ver que pasa con sus libros asociados
         $this->authHelper->checkLoggedIn();//Si no esta loggeado corta la ejecucion
         $this->model->deleteAuthorById($id);// -------------FALTA HACER VERIFICACION DE DELETE---------------------
         header("Location: " . BASE_URL);

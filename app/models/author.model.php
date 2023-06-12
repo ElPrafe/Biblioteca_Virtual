@@ -43,6 +43,7 @@ class AuthorModel {
         $query = $this->db->prepare("INSERT INTO autor (nombre, nacionalidad, img_autor, fecha_nac) VALUES (?, ?, ?, ?)");
         $query->execute([$name, $nationality, $img, $date]);
         return $this->db->lastInsertId();
+        
     }
 
 

@@ -58,6 +58,12 @@ switch ($params[0]) {
             case 'id':
                 $bookController->showBook($params[2]); 
                 break;
+            case 'add':
+                $bookController->addBookScreen(); 
+                break;
+            case 'addAttempt':
+                $bookController->addBook(); 
+                break;
             default:
             echo('404 Page not found');
                 break;

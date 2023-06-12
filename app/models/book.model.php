@@ -37,12 +37,23 @@ class BookModel {
         return $books;//VER COMO DEVOLVER SUS LIBROS
     }
 
-    public function getBook($id) {
+    public function getBookById($id) {
         // 1. abro conexión a la DB
         // ya esta abierta por el constructor de la clase
         // 2. ejecuto la sentencia (2 subpasos)
         $query = $this->db->prepare("SELECT * FROM libro where id=?");
         $query->execute([$id]);
+        // 3. obtengo los resultados
+        $book = $query->fetch(PDO::FETCH_OBJ); // devuelve un arreglo de objetos        
+        return $book;
+    }
+
+    public function getBookByTitle($title) {
+        // 1. abro conexión a la DB
+        // ya esta abierta por el constructor de la clase
+        // 2. ejecuto la sentencia (2 subpasos)
+        $query = $this->db->prepare("SELECT * FROM libro where titulo=?");
+        $query->execute([$title]);
         // 3. obtengo los resultados
         $book = $query->fetch(PDO::FETCH_OBJ); // devuelve un arreglo de objetos        
         return $book;

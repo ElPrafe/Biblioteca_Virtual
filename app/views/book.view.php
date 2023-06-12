@@ -25,4 +25,8 @@ class BookView {
         // mostrar el tpl
         $this->smarty->display('book.details.tpl');
     }
+    function showAddBook() {
+        $this->smarty->assign('logged', true);
+        $this->smarty->display('book.add.tpl');
+    }
 }
