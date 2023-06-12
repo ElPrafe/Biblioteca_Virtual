@@ -7,7 +7,7 @@
                 {if $author->img_autor!=null}
                     <a>{$author->nombre}</a>
                 {else}
-                    {$author->nombre}[]
+                    {$author->nombre}
                 {/if}
             </h4>
             <p>{$author->fecha_nac} - ( {$author->nacionalidad})</p>
@@ -17,7 +17,6 @@
 </div>
 <div class="caja_autores justify-content-md-start">
     {foreach from=$books item=$book}
-        
             <div class="caja_autor row">
                 <div class="caja_descripcion row col">
                     <h4 class="titulo_tarjeta">

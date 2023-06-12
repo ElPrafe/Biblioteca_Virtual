@@ -16,8 +16,15 @@ class LoginController {
 
 
     public function login() {
-        $logged = $this->authHelper->isLoggedIn();
+        $logged = $this->authHelper->isLoggedIn();//Si no esta loggeado, muestra menos cosas
         $this->view->showLogin($logged);
+    }
+
+    public function logout() {
+        if ($this->authHelper->isLoggedIn()){//Si esta loggeado, destruye la sesion.
+            session_destroy();
+            header("Location: " . BASE_URL); 
+        }
     }
     
     public function loginAttempt(){
@@ -39,10 +46,5 @@ class LoginController {
             }
         }     
     }
-
-    
-
-    
-
 }
 

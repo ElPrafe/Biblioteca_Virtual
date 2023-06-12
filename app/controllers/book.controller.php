@@ -15,12 +15,12 @@ class BookController {
     }
 
     public function showBook($id) {
-        $logged = $this->authHelper->isLoggedIn();
+        $logged = $this->authHelper->isLoggedIn();//Si no esta loggeado, muestra menos cosas
         $book = $this->model->getBook($id);        
         $this->view->showBook($book,$logged);
     }
     public function showBooks() {
-        $logged = $this->authHelper->isLoggedIn();
+        $logged = $this->authHelper->isLoggedIn();//Si no esta loggeado, muestra menos cosas
         $books = $this->model->getBooks();
         $this->view->showBooks($books, $logged);
     }
@@ -28,7 +28,7 @@ class BookController {
     
     public function addBook() {
         // TODO: validar entrada de datos
-        $this->authHelper->checkLoggedIn();
+        $this->authHelper->checkLoggedIn();//Si no esta loggeado, corta la ejecucion
         $title = $_POST['title'];
         $desc = $_POST['desc'];
         $genre = $_POST['genre'];
@@ -40,13 +40,13 @@ class BookController {
     }
    
     public function deleteBook($id) {//ver que pasa con sus libros asociados
-        $this->authHelper->checkLoggedIn();
+        $this->authHelper->checkLoggedIn();//Si no esta loggeado, corta la ejecucion
         $this->model->deleteBookById($id);
         header("Location: " . BASE_URL);
     }  
     
     public function editBookById($id) {
-        $this->authHelper->checkLoggedIn();
+        $this->authHelper->checkLoggedIn();//Si no esta loggeado, corta la ejecucion
         
     }
 

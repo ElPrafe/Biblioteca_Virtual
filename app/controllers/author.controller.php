@@ -23,7 +23,7 @@ class AuthorController {
 
     public function showAuthors() {        
               
-        $logged = $this->authHelper->isLoggedIn();
+        $logged = $this->authHelper->isLoggedIn();//Si no esta loggeado, muestra menos cosas
         $authors = $this->model->getAuthors();
         $this->view->showAuthors($authors, $logged);
         
@@ -32,36 +32,53 @@ class AuthorController {
 
     public function showAuthor($id) {
         
-        $logged = $this->authHelper->isLoggedIn();
-        $author = $this->model->getAuthor($id);   
+        $logged = $this->authHelper->isLoggedIn();//Si no esta loggeado, muestra menos cosas
+        $author = $this->model->getAuthorById($id);   
         $books = $this->modelBook->getBooksByID($id);
         $this->view->showAuthor($author,$books, $logged);
         
     }
 
     
-    function addAuthor() {
-        // TODO: validar entrada de datos
-        $this->authHelper->checkLoggedIn();
+    function addAuthorScreen() {        
+        $this->authHelper->checkLoggedIn();//Si no esta loggeado corta la ejecucion        
+        $this->view->showAddAuthor();        
+    }
+    function addAuthor() {        
+        $this->authHelper->checkLoggedIn();//Si no esta loggeado corta la ejecucion        
         $name = $_POST['name'];
         $img= $_POST['img'];
         $date = $_POST['date'];
-        $nacionality = $_POST['nacionality'];
-        $id = $this->model->addAuthor($name, $img, $date, $nacionality);
-
-        header("Location: " . BASE_URL); 
+        $nationality = $_POST['nationality'];     
+        if ($this->model->getAuthorByName($name)){
+            $this->view->showAddAuthor();
+            echo 'YA EXISTE UN AUTOR CON ESE NOMBRE';
+        }else{
+            $id = $this->model->addAuthor($name, $img, $date, $nationality);    
+            $this->showAuthor($id);
+        }          
+        
     }
    
     function deleteAuthor($id) {//ver que pasa con sus libros asociados
-        $this->authHelper->checkLoggedIn();
-
-        $this->model->deleteAuthorById($id);
+        $this->authHelper->checkLoggedIn();//Si no esta loggeado corta la ejecucion
+        $this->model->deleteAuthorById($id);// -------------FALTA HACER VERIFICACION DE DELETE---------------------
         header("Location: " . BASE_URL);
     }  
 
+    public function editAuthorScreen($id) {
+        $this->authHelper->checkLoggedIn();//Si no esta loggeado corta la ejecucion
+        $author = $this->model->getAuthorById($id);
+        $this->view->showEditAuthor($author);  
+    }
     public function editAuthorById($id) {
-        $this->authHelper->checkLoggedIn();
-        
+        $this->authHelper->checkLoggedIn();//Si no esta loggeado corta la ejecucion
+        $name = $_POST['name'];
+        $img= $_POST['img'];
+        $date = $_POST['date'];
+        $nationality = $_POST['nationality'];
+        $this->model->editAuthorByID($id, $name, $img, $date, $nationality);
+        $this->showAuthor($id);
     }
 
 }

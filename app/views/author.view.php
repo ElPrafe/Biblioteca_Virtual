@@ -25,4 +25,13 @@ class AuthorView {
         // mostrar el tpl
         $this->smarty->display('author.details.tpl');
     }
+    function showAddAuthor() {
+        $this->smarty->assign('logged', true);
+        $this->smarty->display('add.author.tpl');
+    }
+    function showEditAuthor($author) {
+        $this->smarty->assign('logged', true);
+        $this->smarty->assign('author', $author);
+        $this->smarty->display('edit.author.tpl');
+    }
 }

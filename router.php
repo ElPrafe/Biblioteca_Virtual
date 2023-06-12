@@ -30,15 +30,21 @@ switch ($params[0]) {
                 $authorController->showAuthor($params[2]);   
                 break;
             case 'add':
+                $authorController->addAuthorScreen(); 
+                break;
+            case 'addAttempt':
                 $authorController->addAuthor(); 
                 break;
             case 'edit':
-                $authorController->showAuthors();  
+                $authorController->editAuthorScreen($params[2]);  
+                break;
+            case 'editAttempt':
+                $authorController->editAuthorById($params[2]);  
                 break;
             case 'delete':
                 $id = $params[2];
                 $authorController->deleteAuthor($id); 
-                break;            
+                break;
             default:
                 echo('404 Page not found');
                 break;
@@ -60,10 +66,11 @@ switch ($params[0]) {
     case 'login':
         $loginController->login();
         break;
-    case 'loginAttempt':
-        
+    case 'loginAttempt':        
         $loginController->loginAttempt();
-
+        break;
+    case 'logout':        
+        $loginController->logout();
         break;
     default:
         echo('404 Page not found');

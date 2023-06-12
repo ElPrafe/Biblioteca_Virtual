@@ -17,9 +17,9 @@
 
                     <img class="img_autor col" src="{$author->img_autor}"></img>
             </div>
-            {if true}                
-                <a class="btn btn-warning btn-sm" href="login" role="button">Borrar Autor</a>       
-                <a class="btn btn-danger btn-sm" href="login" role="button">Editar Autor</a>               
+            {if $logged}                
+                <a class="btn btn-warning btn-sm" href="author/delete/{$author->id}" role="button">Borrar Autor</a>       
+                <a class="btn btn-danger btn-sm" href="author/edit/{$author->id}" role="button">Editar Autor</a>               
             {/if}
         {/if}
     {/foreach}

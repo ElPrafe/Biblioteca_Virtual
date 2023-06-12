@@ -22,8 +22,13 @@ class AuthHelper {
             die();
         } 
     }
+
     public function isLoggedIn() {
-        session_start();
+        if(session_status()==1){
+            session_start();
+        }
+        
+        
         if (!isset($_SESSION['USERNAME'])) {                   
             return false;
         } 
@@ -34,7 +39,6 @@ class AuthHelper {
         } 
         $_SESSION['LAST_ACTIVITY'] = time();
         return true;
-
     }
 
     public function getLoggedUserName() {

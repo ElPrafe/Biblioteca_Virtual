@@ -12,49 +12,49 @@ class AuthorModel {
      * Devuelve los autores.
      */
     public function getAuthors() {
-        // 1. abro conexión a la DB
-        // ya esta abierta por el constructor de la clase
-
-        // 2. ejecuto la sentencia (2 subpasos)
+       
         $query = $this->db->prepare("SELECT * FROM autor");
         $query->execute();
-        // 3. obtengo los resultados
-        $authors = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
+       
+        $authors = $query->fetchAll(PDO::FETCH_OBJ); 
         
         return $authors;//VER COMO DEVOLVER SUS LIBROS
     }
 
-    public function getAuthor($id) {
-        // 1. abro conexión a la DB
-        // ya esta abierta por el constructor de la clase
-        // 2. ejecuto la sentencia (2 subpasos)
+    public function getAuthorById($id) {
+        
         $query = $this->db->prepare("SELECT * FROM autor where id = ?");
-        $query->execute([$id]);
-        // 3. obtengo los resultados
-        $author = $query->fetch(PDO::FETCH_OBJ); // devuelve un arreglo de objetos        
+        $query->execute([$id]);        
+        $author = $query->fetch(PDO::FETCH_OBJ);   
+        return $author;
+    }
+    public function getAuthorByName($name) {
+        
+        $query = $this->db->prepare("SELECT * FROM autor where nombre = ?");
+        $query->execute([$name]);        
+        $author = $query->fetch(PDO::FETCH_OBJ);   
         return $author;
     }
 
     /**
      * Inserta un autor en la base de datos.
      */
-    public function addAuthor($name, $img, $date, $nacionality) {
-        $query = $this->db->prepare("INSERT INTO autor (nombre, img_autor, nacionalidad, fecha_nac VALUES (?, ?, ?)");
-        $query->execute([$name, $img, $nacionality, $date]);
-
+    public function addAuthor($name, $img, $date, $nationality) {
+        $query = $this->db->prepare("INSERT INTO autor (nombre, nacionalidad, img_autor, fecha_nac) VALUES (?, ?, ?, ?)");
+        $query->execute([$name, $nationality, $img, $date]);
         return $this->db->lastInsertId();
     }
 
 
-    /**
-     * Elimina una tarea dado su id.
-     */
-    public function deleteAuthorById($id) {
+
+    public function deleteAuthorById($id) {        
         $query = $this->db->prepare('DELETE FROM autor WHERE id = ?');
         $query->execute([$id]);
     }
 
-    public function editAuthorById($id) {
+    public function editAuthorById($id, $name, $img, $date, $nationality) {        
+        $query = $this->db->prepare("UPDATE autor SET nombre=?, nacionalidad=?, img_autor=?, fecha_nac=?  WHERE id=?");
+        $query->execute([$name, $nationality, $img, $date,$id]);
         
     }
 
