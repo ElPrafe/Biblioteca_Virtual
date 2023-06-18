@@ -12,8 +12,11 @@
                 </div>
                     <img class="img_autor col" src="{$book->img_tapa}"></img>
             </div>
+            {if $logged}                
+                <a class="btn btn-warning btn-sm" href="book/delete/{$book->id}" role="button">Borrar Libro</a>       
+                <a class="btn btn-danger btn-sm" href="book/edit/{$book->id}" role="button">Editar Libro</a>               
+            {/if}
         {/if}
     {/foreach}
 </div>
-
 {include file="footer.tpl"}

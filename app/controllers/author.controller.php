@@ -49,17 +49,14 @@ class AuthorController {
         $name = $_POST['name'];
         $img= $_POST['img'];
         $date = $_POST['date'];
-        $nationality = $_POST['nationality'];     
-        if ($this->model->getAuthorByName($name)){
-            $this->view->showAddAuthor();
-            echo 'YA EXISTE UN AUTOR CON ESE NOMBRE';
-        }else{
+        $nationality = $_POST['nationality']; 
+        $year = explode('-', $date)[0];//Obtengo el año de $date
+        if ($this->checkAddForm($name, $year)){
             $id = $this->model->addAuthor($name, $img, $date, $nationality);    
             $this->showAuthor($id);
-        }          
+        }
         
     }
-   
     public function deleteAuthor($id) {//ver que pasa con sus libros asociados
         $this->authHelper->checkLoggedIn();//Si no esta loggeado corta la ejecucion
         $this->model->deleteAuthorById($id);// -------------FALTA HACER VERIFICACION DE DELETE---------------------
@@ -80,7 +77,20 @@ class AuthorController {
         $this->model->editAuthorByID($id, $name, $img, $date, $nationality);
         $this->showAuthor($id);
     }
-
+    private function checkAddForm($name, $year){
+        if ($this->model->getAuthorByName($name)){//Se fija si ya hay un autor con ese nombre.
+            $this->view->showAddAuthor();
+            echo 'YA EXISTE UN AUTOR CON ESE NOMBRE';              
+        }else{ 
+            if ($year>1900 && $year<2021){//Se fija que el año sea valido.      
+                return true; 
+            }else{
+                $this->view->showAddAuthor();                
+                echo 'Año ingresado invalido. Solo se permite entre 1901 y 2020';                 
+            }
+        } 
+        return false;
+    }
 }
 
 

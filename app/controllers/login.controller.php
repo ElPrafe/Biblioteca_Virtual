@@ -40,7 +40,7 @@ class LoginController {
                 header("Location: " . BASE_URL);                
                 
             }else{
-                $this->view->showLogin();
+                $this->view->showLogin(false);
                 echo  'Login failed';
 
             }

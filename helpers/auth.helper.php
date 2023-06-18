@@ -15,8 +15,10 @@ class AuthHelper {
         session_destroy();
     }
 
-    public function checkLoggedIn() {        
-        session_start();
+    public function checkLoggedIn() {   
+        if (session_status() !=2) {
+            session_start();
+        }   
         if (!isset($_SESSION['USERNAME'])) {
             header('Location: ' . 'login');
             die();

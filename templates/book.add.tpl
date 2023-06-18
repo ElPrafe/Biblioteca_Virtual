@@ -13,9 +13,12 @@
         <input type="text" name="genre" id="form2Example2" class="form-control" required/>
         <label class="form-label" for="form2Example2">Generos del Libro</label>
     </div>     
-    <div class="form-outline mb-4">
-        <input type="text" name="author" id="form2Example2" class="form-control" required/>
-        <label class="form-label" for="form2Example2">Nombre del Autor</label>
+    <div class="form-outline mb-4">    
+        <select class="mb-3" name="author" required>
+        {foreach from=$authors item=$author}
+            <option value="{$author->id}">{$author->nombre}</option>
+        {/foreach}            
+        </select>
     </div>     
     <div class="form-outline mb-4">
         <input type="text" name="img" id="form2Example1" class="form-control" required/>

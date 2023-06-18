@@ -29,8 +29,9 @@ class BookController {
     }
 
     public function addBookScreen() {        
-        $this->authHelper->checkLoggedIn();//Si no esta loggeado corta la ejecucion        
-        $this->view->showAddBook();        
+        $this->authHelper->checkLoggedIn();//Si no esta loggeado corta la ejecucion  
+        $authors = $this->modelAuthor->getAuthors();
+        $this->view->showAddBook($authors);        
     }
     
     public function addBook() {
@@ -40,36 +41,34 @@ class BookController {
         $desc = $_POST['desc'];
         $genre = $_POST['genre'];
         $img = $_POST['img'];
-        $author = $_POST['author'];//verificar que el autor exista en la base de datos antes de ingresar el dato
-        if ($this->model->getBookByTitle($title)){
-            $this->view->showAddBook();
-            echo 'YA EXISTE UN LIBRO CON ESE NOMBRE';
-        }else{
-            $author = $this->modelAuthor->getAuthorByName($author);
-            if($author){
-                $book = $this->model->addBook($title, $desc, $genre, $img, $author->id);   
-
-                $this->showBook($book);
-            }else{
-                $this->view->showAddBook();
-            echo 'No existe ese autor';
-            }
-            
+        $idAuthor = $_POST['author'];//verificar que el autor exista en la base de datos antes de ingresar el dato
+        if ($this->checkAddForm($title,$idAuthor)){
+            $author = $this->modelAuthor->getAuthorById($idAuthor);
+            $idBook = $this->model->addBook($title, $desc, $genre, $img, $idAuthor);
+            $this->showBook($idBook);
         }        
-        
-    }
+    }    
    
     public function deleteBook($id) {//ver que pasa con sus libros asociados
         $this->authHelper->checkLoggedIn();//Si no esta loggeado, corta la ejecucion
         $this->model->deleteBookById($id);
-        header("Location: " . BASE_URL);
+        $this->showBooks();
+        
     }  
     
     public function editBookById($id) {
-        $this->authHelper->checkLoggedIn();//Si no esta loggeado, corta la ejecucion
-        
+        $this->authHelper->checkLoggedIn();//Si no esta loggeado, corta la ejecucion        
     }
-    
+
+    private function checkAddForm($title, $idAuthor){
+        $book = $this->model->getBookByTitle($title);
+        if ($book && $book->id_autor == $idAuthor){//Se fija si ya hay un libro con ese nombre.
+            $this->addBookScreen();
+            echo 'YA EXISTE UN LIBRO CON ESE NOMBRE Y DE ESE AUTOR';  
+            return false;            
+        }
+        return true;
+    }
 
 
 

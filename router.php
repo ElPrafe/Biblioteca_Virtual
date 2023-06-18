@@ -41,9 +41,8 @@ switch ($params[0]) {
             case 'editAttempt':
                 $authorController->editAuthorById($params[2]);  
                 break;
-            case 'delete':
-                $id = $params[2];
-                $authorController->deleteAuthor($id); 
+            case 'delete':                
+                $authorController->deleteAuthor($params[2]); 
                 break;
             default:
                 echo('404 Page not found');
@@ -63,6 +62,15 @@ switch ($params[0]) {
                 break;
             case 'addAttempt':
                 $bookController->addBook(); 
+                break;
+            case 'delete':                
+                $bookController->deleteBook($params[2]); 
+                break;
+            case 'edit':                
+                $bookController->editBookScreen($params[2]); 
+                break;
+            case 'editAttempt':                
+                $bookController->editBookById($params[2]); 
                 break;
             default:
             echo('404 Page not found');

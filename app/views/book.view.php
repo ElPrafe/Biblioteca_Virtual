@@ -25,8 +25,9 @@ class BookView {
         // mostrar el tpl
         $this->smarty->display('book.details.tpl');
     }
-    function showAddBook() {
+    function showAddBook($authors) {
         $this->smarty->assign('logged', true);
+        $this->smarty->assign('authors', $authors);
         $this->smarty->display('book.add.tpl');
     }
 }
