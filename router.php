@@ -52,7 +52,7 @@ switch ($params[0]) {
     case 'book':
         switch ($params[1]) {
             case 'all':
-                $bookController->showBooks(); 
+                $bookController->showBooksWithAuthor(); 
                 break;
             case 'id':
                 $bookController->showBook($params[2]); 

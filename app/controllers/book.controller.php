@@ -27,6 +27,26 @@ class BookController {
         $books = $this->model->getBooks();
         $this->view->showBooks($books, $logged);
     }
+    public function showBooksWithAuthor() {
+        $logged = $this->authHelper->isLoggedIn();//Si no esta loggeado, muestra menos cosas
+        $books = $this->model->getBooks();
+        $booksWithAuthor = array();
+        $i=0;
+        foreach ($books as $book) {            
+            $bookWithAuthor['id'] = $book->id;
+            $bookWithAuthor['titulo'] = $book->titulo;
+            $bookWithAuthor['descripcion'] = $book->descripcion;
+            $bookWithAuthor['genero'] = $book->genero;
+            $bookWithAuthor['img_tapa'] = $book->img_tapa;            
+            $bookWithAuthor['id_autor'] = $book->id_autor;            
+            $author = $this->modelAuthor->getAuthorById($book->id_autor);
+            $bookWithAuthor['autor_nombre'] = $author->nombre;
+            
+            array_push($booksWithAuthor,$bookWithAuthor);
+        }
+        
+        $this->view->showBooksWithAuthor($booksWithAuthor, $logged);
+    }
 
     public function addBookScreen() {        
         $this->authHelper->checkLoggedIn();//Si no esta loggeado corta la ejecucion  
