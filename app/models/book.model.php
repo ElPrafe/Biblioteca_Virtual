@@ -68,9 +68,9 @@ class BookModel {
 
         return $this->db->lastInsertId();
     }
-    public function editBookById($id, $title, $genre, $desc, $img) {        
-        $query = $this->db->prepare("UPDATE libro SET titulo=?, descripcion=?, genero=?, img_tapa=?  WHERE id=?");
-        $query->execute([$title, $desc, $genre, $img,$id]);        
+    public function editBookById($id, $title, $genre, $desc, $img, $authorid) {        
+        $query = $this->db->prepare("UPDATE libro SET titulo=?, descripcion=?, genero=?, img_tapa=?, id_autor=?  WHERE id=?");
+        $query->execute([$title, $desc, $genre, $img, $authorid, $id]);        
     }
 
     /**

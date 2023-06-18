@@ -30,9 +30,10 @@ class BookView {
         $this->smarty->assign('authors', $authors);
         $this->smarty->display('book.add.tpl');
     }
-    function showEditBook($book) {
+    function showEditBook($book, $authors) {
         $this->smarty->assign('logged', true);
         $this->smarty->assign('book', $book);
+        $this->smarty->assign('authors', $authors);
         $this->smarty->display('book.edit.tpl');
     }
 }

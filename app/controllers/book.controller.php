@@ -62,13 +62,15 @@ class BookController {
         $genre = $_POST['genre']; 
         $desc = $_POST['desc']; 
         $img = $_POST['img'];       
-        $this->model->editBookByID($id, $title, $genre, $desc, $img);
+        $authorId = $_POST['author'];       
+        $this->model->editBookByID($id, $title, $genre, $desc, $img, $authorId);
         $this->showBook($id);
     }
     public function editBookScreen($id) {
         $this->authHelper->checkLoggedIn();//Si no esta loggeado, corta la ejecucion       
         $book = $this->model->getBookById($id);
-        $this->view->showEditBook($book);   
+        $authors = $this->modelAuthor->getAuthors();
+        $this->view->showEditBook($book,$authors);   
     }
 
     private function checkAddForm($title, $idAuthor){
