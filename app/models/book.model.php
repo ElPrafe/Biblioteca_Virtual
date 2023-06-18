@@ -68,7 +68,10 @@ class BookModel {
 
         return $this->db->lastInsertId();
     }
-
+    public function editBookById($id, $title, $genre, $desc, $img) {        
+        $query = $this->db->prepare("UPDATE libro SET titulo=?, descripcion=?, genero=?, img_tapa=?  WHERE id=?");
+        $query->execute([$title, $desc, $genre, $img,$id]);        
+    }
 
     /**
      * Elimina una tarea dado su id.
@@ -77,9 +80,7 @@ class BookModel {
         $query = $this->db->prepare('DELETE FROM libro WHERE id = ?');
         $query->execute([$id]);
     }
-    public function editBookById($id) {
-        
-    }
+    
 
   
 }
