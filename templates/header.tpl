@@ -26,11 +26,7 @@
               <a class="nav-link" href="book/all">Libros</a>
             </li>
             <li class="nav-item">
-            {if $logged}
-                <a class="nav-link" href="logout">Desconectarse</a>
-              {else}
-                <a class="nav-link" href="login">Ingresar</a>
-            {/if}              
+                          
             </li>
             {if $logged}
             <li class="nav-item">            
@@ -41,10 +37,13 @@
             </li>
             {/if}
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="text" placeholder="Search">
-            <button class="btn btn-primary" type="button">Search</button>
-          </form>
+          <div class="d-flex">
+          {if $logged}
+            <a class="nav-link navbar-brand" href="logout">Desconectarse</a>
+          {else}
+            <a class="nav-link navbar-brand" href="login">Ingresar</a>
+          {/if}
+          </div>
         </div>
       </div>
     </nav>
