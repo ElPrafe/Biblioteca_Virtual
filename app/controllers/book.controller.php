@@ -74,7 +74,7 @@ class BookController {
     public function deleteBook($id) {//ver que pasa con sus libros asociados
         $this->authHelper->checkLoggedIn();//Si no esta loggeado, corta la ejecucion
         $this->model->deleteBookById($id);
-        $this->showBooks();
+        $this->showBooksWithAuthor();
         
     }  
     
