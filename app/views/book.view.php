@@ -27,10 +27,11 @@ class BookView {
         $this->smarty->display('books.list.with.author.tpl');
     }
 
-    function showBook($book, $logged) {
+    function showBook($book, $author, $logged) {
         // asigno variables al tpl smarty                
         $this->smarty->assign('book', $book);
         $this->smarty->assign('logged', $logged);
+        $this->smarty->assign('author', $author);
         // mostrar el tpl
         $this->smarty->display('book.details.tpl');
     }

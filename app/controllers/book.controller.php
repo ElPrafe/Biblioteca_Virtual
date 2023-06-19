@@ -19,9 +19,11 @@ class BookController {
 
     public function showBook($id) {
         $logged = $this->authHelper->isLoggedIn();//Si no esta loggeado, muestra menos cosas
-        $book = $this->model->getBookById($id);        
-        $this->view->showBook($book,$logged);
+        $book = $this->model->getBookById($id);   
+        $author = $this->modelAuthor->getAuthorById($book->id_autor);   
+        $this->view->showBook($book,$author,$logged);
     }
+
     public function showBooks() {
         $logged = $this->authHelper->isLoggedIn();//Si no esta loggeado, muestra menos cosas
         $books = $this->model->getBooks();

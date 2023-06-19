@@ -21,24 +21,18 @@ class AuthorController {
         $this->authHelper = new AuthHelper();
     }
 
-    public function showAuthors() {        
-              
+    public function showAuthors() {                  
         $logged = $this->authHelper->isLoggedIn();//Si no esta loggeado, muestra menos cosas
         $authors = $this->model->getAuthors();
         $this->view->showAuthors($authors, $logged);
-        
-    
     }
 
     public function showAuthor($id) {
-        
         $logged = $this->authHelper->isLoggedIn();//Si no esta loggeado, muestra menos cosas
         $author = $this->model->getAuthorById($id);   
         $books = $this->modelBook->getBooksByID($id);
-        $this->view->showAuthor($author,$books, $logged);
-        
+        $this->view->showAuthor($author,$books, $logged); 
     }
-
     
     public function addAuthorScreen() {        
         $this->authHelper->checkLoggedIn();//Si no esta loggeado corta la ejecucion        
@@ -55,8 +49,8 @@ class AuthorController {
             $id = $this->model->addAuthor($name, $img, $date, $nationality);    
             $this->showAuthor($id);
         }
-        
     }
+
     public function deleteAuthor($id) {//ver que pasa con sus libros asociados
         $this->authHelper->checkLoggedIn();//Si no esta loggeado corta la ejecucion
         $this->model->deleteAuthorById($id);// -------------FALTA HACER VERIFICACION DE DELETE---------------------
@@ -92,5 +86,3 @@ class AuthorController {
         return false;
     }
 }
-
-

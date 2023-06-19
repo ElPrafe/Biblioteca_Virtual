@@ -4,6 +4,7 @@ USE `db_library`;
 
 DROP TABLE IF EXISTS `libro`;
 DROP TABLE IF EXISTS `autor`;
+DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `autor` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL DEFAULT '',
@@ -28,12 +29,14 @@ CREATE TABLE IF NOT EXISTS `libro` (
 CREATE TABLE `usuarios` (
 	`usuario` VARCHAR(50) ,
 	`contraseña` VARCHAR(255) NOT NULL DEFAULT '' ,
-  PRIMARY KEY (`usuario`),
+  PRIMARY KEY (`usuario`)
 )
 ENGINE=InnoDB
 ;
 
 INSERT INTO `autor` (`nombre`, `img_autor`, `nacionalidad`, `fecha_nac`) VALUES
 	('Sin Autor', NULL, 'Ninguna', '1901-01-01');
-
 UPDATE `autor` SET id=0 WHERE id=1;
+
+INSERT INTO `usuarios` (`usuario`, `contraseña`) VALUES
+	('db_login','$2y$10$i/BIL2g0B7zwXLb3GLptIO9EkOcMnAptvACaOrLXDiPhzP0oRMXA2')

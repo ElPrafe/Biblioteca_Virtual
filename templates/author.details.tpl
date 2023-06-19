@@ -1,22 +1,7 @@
 {include file="header.tpl"}
-
-<div class="caja_autores justify-content-md-start">
-    <div class="caja_autor row">
-        <div class="caja_descripcion row col">
-            <h4 class="titulo_tarjeta">
-                {if $author->img_autor!=null}
-                    <a>{$author->nombre}</a>
-                {else}
-                    {$author->nombre}
-                {/if}
-            </h4>
-            <p>{$author->fecha_nac} - ( {$author->nacionalidad})</p>
-        </div>
-        <img class="img_autor col" src="{$author->img_autor}"></img>
-    </div>
-</div>
-<div class="caja_autores justify-content-md-start">
-    {foreach from=$books item=$book}
+<div class="author_details d-inline-flex">
+    <div class="caja_autores">
+        {foreach from=$books item=$book}
             <div class="caja_autor row">
                 <div class="caja_descripcion row col">
                     <h4 class="titulo_tarjeta">
@@ -29,10 +14,32 @@
                     <p>{$book->genero}</p>
                 </div>
 
-                    <img class="img_autor col" src="{$book->img_tapa}"></img>
+                <img class="img_autor col" src="{$book->img_tapa}"></img>
+                {if $logged}
+                    <div class="col caja_btns">
+                        <a class="btn btn-warning btn-sm row custom_btn" href="book/delete/{$book->id}" role="button">Borrar</a>
+                        <a class="btn btn-danger btn-sm row custom_btn" href="book/edit/{$book->id}" role="button">Editar</a>
+                    </div>
+                {/if}
             </div>
-        
-    {/foreach}
+        {/foreach}
+    </div>
+
+    <div class="caja_autor_detail col d-flex">
+        <div class="caja_descripcion_detail">
+            <h4 class="titulo_tarjeta">
+                {if $author->img_autor!=null}
+                    <a>{$author->nombre}</a>
+                {else}
+                    {$author->nombre}
+                {/if}
+            </h4>
+            <p>{$author->fecha_nac} - ({$author->nacionalidad})</p>
+        </div>
+
+        <img class="img_autor_detail" src="{$author->img_autor}"></img>
+    </div>
+
 </div>
 
 {include file="footer.tpl"}

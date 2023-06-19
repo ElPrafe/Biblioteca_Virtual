@@ -18,7 +18,6 @@ class AuthorView {
     }
     function showAuthor($author,$books, $logged) {
         // asigno variables al tpl smarty      
-                
         $this->smarty->assign('author', $author);
         $this->smarty->assign('books', $books);
         $this->smarty->assign('logged', $logged);

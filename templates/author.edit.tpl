@@ -11,7 +11,7 @@
                     {$author->nombre}
                 {/if}
             </h4>
-            <p>{$author->fecha_nac} - ( {$author->nacionalidad})</p>
+            <p>{$author->fecha_nac} - ({$author->nacionalidad})</p>
         </div>
         <img class="img_autor col" src="{$author->img_autor}"></img>
     </div>
