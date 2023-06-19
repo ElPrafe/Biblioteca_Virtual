@@ -7,7 +7,7 @@
                 <h4 class="titulo_tarjeta">
                     <a href='book/id/{$book['id']}'>{$book['titulo']} - {$book['autor_nombre']}</a>
                 </h4>
-                <h3>{$book['genero']}</h3>
+                <p>{$book['genero']}</p>
             </div>
             <img class="img_autor col" src="{$book['img_tapa']}"></img>
 
