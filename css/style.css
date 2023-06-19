@@ -69,7 +69,6 @@ html,body{
     padding:0px;
     object-fit: contain;
     aspect-ratio: 2/1;
-    
     max-height: 150px;
     min-height: 50px;
     min-width: 150px;
@@ -116,6 +115,13 @@ html,body{
     max-height: 300px;
 }
 
+.img_libro_edit{
+    margin:0px;
+    padding:0px;
+    object-fit: contain;
+    max-height: 150px;
+}
+
 .titulo_autor{
     width: 100%;
     max-width: 100%;
@@ -133,6 +139,67 @@ p{
 }
 h4{
     font-size: 17px;
+}
+
+.formulario{
+    border:1px solid lightgray;
+    margin: 0px 0px 10px 10px;
+    padding:10px;
+}
+
+.header2 {
+    color: #36A0FF;
+    font-size: 27px;
+    padding: 10px;
+}
+
+.bigicon {
+    margin:0px 15px 0px 0px;
+    font-size: 30px;
+    color: #36A0FF;
+    max-width: 4%;
+    min-width: 4%;
+}
+
+.nacionality {
+    margin:0px;
+    padding: 6px 12px;
+    min-height: 100%;
+    border: solid 1px lightgray;
+    border-radius: 6px;
+}
+
+.form-group{
+    margin:10px;
+}
+
+.btn,.btn-primary,.submit {
+    margin:20px
+}
+
+.tarjeta_edit {
+    border:1px solid;
+    padding:0px;
+    margin:0px 20px 0px 20px;
+    height: 3%;
+}
+
+.titulo_libro_edit{
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+    font-size: 40px;
+    color:chocolate;
+    margin-bottom:10px;
+}
+
+
+.caja_descripcion_libro_edit {
+    max-width: 100%;
+    margin:0px;
+    padding:0px;
+    padding-left:10px
 }
 
 @media only screen and (min-width: 768px) {

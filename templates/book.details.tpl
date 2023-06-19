@@ -13,8 +13,6 @@
             <h6 class="text-center">{$book->genero}</h6>
             <p class="text-justify">{$book->descripcion}</p>
         </div>
-
-        
     </div>
 </div>
 

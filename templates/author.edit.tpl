@@ -1,9 +1,38 @@
 {include file="header.tpl"}
-<div class="mt-5">
 
-<div class="caja_autores justify-content-md-start mb-3">
-    <div class="caja_autor row">
-        <div class="caja_descripcion row col">
+<div class="author_details d-inline-flex mt-5">
+    <div class="col-md-8 formulario">
+        <form action="author/editAttempt/{$author->id}" method="POST">
+            <fieldset>
+                <legend class="text-left header2">Editar autor</legend>
+                <span class="form-group d-flex align-items-center"><i class="fa fa-user-tie bigicon"></i>
+                    <input id="form2Example1" name="name" value="{$author->nombre}" type="text"
+                        placeholder="Nombre del autor" class="form-control" required>
+                </span>
+
+                <span class="form-group d-flex align-items-center"><i class="fa fa-image bigicon"></i>
+                    <input id="form2Example1" name="img" value="{$author->img_autor}" type="text"
+                        placeholder="URL imagen de autor" class="form-control">
+                </span>
+
+                <span class="form-group d-flex align-items-center"><i class="fa fa-calendar-days bigicon"></i>
+                    <input id="form2Example2" name="date" value="{$author->fecha_nac}" type="date"
+                        placeholder="Fecha de nacimiento" class="form-control">
+                </span>
+
+
+                <span class="form-group d-flex align-items-center"><i class="fa fa-image bigicon"></i>
+                    {include file ="nationality.tpl"}
+                </span>
+
+                <button type="submit" class="btn btn-primary submit">Editar Autor</button>
+            </fieldset>
+        </form>
+    </div>
+
+
+    <div class="caja_autor_detail col d-flex">
+        <div class="caja_descripcion_detail">
             <h4 class="titulo_tarjeta">
                 {if $author->img_autor!=null}
                     <a>{$author->nombre}</a>
@@ -11,28 +40,11 @@
                     {$author->nombre}
                 {/if}
             </h4>
-            <p>{$author->fecha_nac} - ({$author->nacionalidad})</p>
+            <p class="text-center mb-1">{$author->fecha_nac}</p>
+            <p class="text-center  mb-1">({$author->nacionalidad})</p>
         </div>
-        <img class="img_autor col" src="{$author->img_autor}"></img>
+        <img class="img_autor_detail" src="{$author->img_autor}"></img>
     </div>
 </div>
-
-<form action="author/editAttempt/{$author->id}" method="POST">    
-    <div class="form-outline mb-4">
-        <input type="text" value="{$author->nombre}" name="name" id="form2Example1" class="form-control" required />
-        <label class="form-label" for="form2Example1">Nombre Autor</label>
-    </div>
-    <div class="form-outline mb-4">
-        <input type="text" value="{$author->img_autor}" name="img" id="form2Example1" class="form-control" required/>
-        <label class="form-label" for="form2Example1">Link Imagen Autor</label>
-    </div>    
-    {include file ="nationality.tpl"}
-    <div class="form-outline mb-4">
-        <input type="date" value="{$author->fecha_nac}" name="date" id="form2Example2" class="form-control" required/>
-        <label class="form-label" for="form2Example2">Fecha de Nacimiento</label>
-    </div>     
-     <button type="submit" class="btn btn-primary btn-block mb-4">Editar Autor</button>
-    </form>
-</div> 
 
 {include file="footer.tpl"}

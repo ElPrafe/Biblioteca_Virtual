@@ -1,21 +1,20 @@
 {include file="header.tpl"}
 <!-- formulario de alta de tarea -->
-<div class="mt-5">
-<form action="loginAttempt" method="POST">
-    <!-- Email input -->
-    <div class="form-outline mb-4">
-        <input type="text" name="username" id="form2Example1" class="form-control" required/>
-        <label class="form-label" for="form2Example1">Usuario</label>
-    </div>
+<div class="col-md-4 border login_form">
+    <form action="loginAttempt" method="POST">
+        <fieldset>
+            <legend class="text-left header2">Ingresar</legend>
+            <span class="form-group d-flex align-items-center"><i class="fa fa-user bigicon"></i>
+                <input id="form2Example1" name="username" type="text" placeholder="Usuario" class="form-control"
+                    required>
+            </span>
 
-    <!-- Password input -->
-    <div class="form-outline mb-4">
-        <input type="password" name="password" id="form2Example2" class="form-control" required/>
-        <label class="form-label" for="form2Example2">Contraseña</label>
-    </div>
-     <!-- Submit button -->
-     <button type="submit" class="btn btn-primary btn-block mb-4">Ingresar</button>
+            <span class="form-group d-flex align-items-center"><i class="fa fa-key bigicon"></i>
+                <input id="form2Example2" name="password" type="password" placeholder="Password" class="form-control" required>
+            </span>
+            <button type="submit" class="btn btn-primary submit">Ingresar</button>
+        </fieldset>
     </form>
-</div> 
+</div>
 
 {include file="footer.tpl"}

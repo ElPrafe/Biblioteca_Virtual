@@ -75,7 +75,6 @@ class BookController {
         $this->authHelper->checkLoggedIn();//Si no esta loggeado, corta la ejecucion
         $this->model->deleteBookById($id);
         $this->showBooksWithAuthor();
-        
     }  
     
     public function editBookById($id) {
@@ -92,7 +91,8 @@ class BookController {
         $this->authHelper->checkLoggedIn();//Si no esta loggeado, corta la ejecucion       
         $book = $this->model->getBookById($id);
         $authors = $this->modelAuthor->getAuthors();
-        $this->view->showEditBook($book,$authors);   
+        $author = $this->modelAuthor->getAuthorById($book->id_autor);
+        $this->view->showEditBook($book,$authors,$author);   
     }
 
     private function checkAddForm($title, $idAuthor){
@@ -104,9 +104,6 @@ class BookController {
         }
         return true;
     }
-
-
-
 }
 
 
