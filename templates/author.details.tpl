@@ -10,8 +10,8 @@
                 <p class="text-center">{$book->genero}</p>
                 {if $logged}
                     <div class="col caja_btns">
-                        <a class="btn btn-warning btn-sm row custom_btn" href="book/delete/{$book->id}" role="button">Borrar</a>
-                        <a class="btn btn-danger btn-sm row custom_btn" href="book/edit/{$book->id}" role="button">Editar</a>
+                        <a class="btn btn-danger btn-sm row custom_btn" href="book/delete/{$book->id}" role="button">Borrar</a>
+                        <a class="btn btn-warning btn-sm row custom_btn" href="book/edit/{$book->id}" role="button">Editar</a>
                     </div>
                 {/if}
             </div>
@@ -34,5 +34,8 @@
         <img class="img_autor_detail" src="{$author->img_autor}"></img>
     </div>
 </div>
+{if $logged}
+    <script src="./js/script.js"></script>
+{/if}
 
 {include file="footer.tpl"}

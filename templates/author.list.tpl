@@ -16,13 +16,17 @@
                 
                 {if $logged}
                     <div class="caja_btns">
-                        <a class="btn btn-warning btn-sm row custom_btn" href="author/delete/{$author->id}" role="button">Borrar</a>
-                        <a class="btn btn-danger btn-sm row custom_btn" href="author/edit/{$author->id}" role="button">Editar</a>
+                        <a class="btn btn-danger btn-sm row custom_btn" href="author/delete/{$author->id}" role="button">Borrar</a>
+                        <a class="btn btn-warning btn-sm row custom_btn" href="author/edit/{$author->id}" role="button">Editar</a>
                     </div>
+                    
                 {/if}
             </div>
         {/if}
     {/foreach}
 </div>
 
+{if $logged}
+    <script src="./js/script.js"></script>
+{/if}
 {include file="footer.tpl"}
