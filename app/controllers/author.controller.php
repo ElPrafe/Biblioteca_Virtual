@@ -27,11 +27,12 @@ class AuthorController {
         $this->view->showAuthors($authors, $logged);
     }
 
-    public function showAuthor($id) {
+    public function showAuthor($id, $warning) {
+        
         $logged = $this->authHelper->isLoggedIn();//Si no esta loggeado, muestra menos cosas
         $author = $this->model->getAuthorById($id);   
         $books = $this->modelBook->getBooksByID($id);
-        $this->view->showAuthor($author,$books, $logged); 
+        $this->view->showAuthor($author,$books, $logged,$warning); 
     }
     
     public function addAuthorScreen() {        
@@ -51,10 +52,27 @@ class AuthorController {
         }
     }
 
+    private function checkBookFromAuthor($id){
+        $books = $this->modelBook->getBooks();
+        foreach ($books as $book) {
+            if ($book->id_autor == $id){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public function deleteAuthor($id) {//ver que pasa con sus libros asociados
         $this->authHelper->checkLoggedIn();//Si no esta loggeado corta la ejecucion
-        $this->model->deleteAuthorById($id);// -------------FALTA HACER VERIFICACION DE DELETE---------------------
-        header("Location: " . BASE_URL);
+        if ($this->checkBookFromAuthor($id)){
+            $this->model->deleteAuthorById($id);
+            header("Location: " . BASE_URL);
+        }else{
+            $warning = true;   
+            $this->showAuthor($id, $warning);    
+        }
+       
+        
     }  
 
     public function editAuthorScreen($id) {
@@ -74,13 +92,13 @@ class AuthorController {
     private function checkAddForm($name, $year){
         if ($this->model->getAuthorByName($name)){//Se fija si ya hay un autor con ese nombre.
             $this->view->showAddAuthor();
-            echo 'YA EXISTE UN AUTOR CON ESE NOMBRE';              
+            echo '<h3>Ya existe un Autor con ese nombre. Verifique sus datos</h3>';              
         }else{ 
             if ($year>1900 && $year<2021){//Se fija que el año sea valido.      
                 return true; 
             }else{
                 $this->view->showAddAuthor();                
-                echo 'Año ingresado invalido. Solo se permite entre 1901 y 2020';                 
+                echo '<h3>Año ingresado invalido. Solo se permite entre 1901 y 2020</h3>';                 
             }
         } 
         return false;

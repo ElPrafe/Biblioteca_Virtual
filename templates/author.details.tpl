@@ -17,7 +17,7 @@
             </div>
         {/foreach}
     </div>
-
+    <div>
     <div class="caja_autor_detail col d-flex">
         <div class="caja_descripcion_detail">
             <h4 class="titulo_tarjeta">
@@ -33,6 +33,12 @@
 
         <img class="img_autor_detail" src="{$author->img_autor}"></img>
     </div>
+    {if !$warning}        
+        <div class="error">El autor tiene libros cargados, primero elimine sus libros.</div>
+    {/if}
+    </div>
+    
+
 </div>
 {if $logged}
     <script src="./js/script.js"></script>

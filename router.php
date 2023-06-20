@@ -27,7 +27,7 @@ switch ($params[0]) {
                 $authorController->showAuthors();  
                 break;
             case 'id':
-                $authorController->showAuthor($params[2]);   
+                $authorController->showAuthor($params[2], false);   
                 break;
             case 'add':
                 $authorController->addAuthorScreen(); 

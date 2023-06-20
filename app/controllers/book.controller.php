@@ -99,7 +99,7 @@ class BookController {
         $book = $this->model->getBookByTitle($title);
         if ($book && $book->id_autor == $idAuthor){//Se fija si ya hay un libro con ese nombre.
             $this->addBookScreen();
-            echo 'YA EXISTE UN LIBRO CON ESE NOMBRE Y DE ESE AUTOR';  
+            echo '<h3>Ya existe un libro con ese nombre y de ese Autor. Verifique sus datos</h3>';  
             return false;            
         }
         return true;

@@ -20,7 +20,7 @@
 {if $logged}
     <div id="modal" class="modal">
         <div class="modal-content">
-            <p id="mensaje_borrar">¿Estás seguro de que deseas eliminar el Autor?</p>
+            <p id="mensaje_borrar">¿Estás seguro de que deseas eliminar el Libro?</p>
             <a id="aceptar" role="button" class="btn btn-success" href="">Aceptar</a>
             <a role="button" class="cancelar btn btn-primary">Cancelar</a>
         </div>
