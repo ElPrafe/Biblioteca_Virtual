@@ -21,7 +21,6 @@ class BookModel {
         // 3. obtengo los resultados
         $books = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
         
-        
         return $books;//VER COMO DEVOLVER SUS LIBROS
     }
     public function getBooks() {
@@ -59,9 +58,6 @@ class BookModel {
         return $book;
     }
 
-    /**
-     * Inserta un autor en la base de datos.
-     */
     public function addBook($title, $desc, $genre, $img, $author_id) {
         $query = $this->db->prepare("INSERT INTO libro (titulo, descripcion, genero,img_tapa, id_autor) VALUES (?, ?, ?, ?, ?)");
         $query->execute([$title, $desc, $genre, $img, $author_id]);
@@ -73,14 +69,8 @@ class BookModel {
         $query->execute([$title, $desc, $genre, $img, $authorid, $id]);        
     }
 
-    /**
-     * Elimina una tarea dado su id.
-     */
     public function deleteBookById($id) {
         $query = $this->db->prepare('DELETE FROM libro WHERE id = ?');
         $query->execute([$id]);
     }
-    
-
-  
 }
