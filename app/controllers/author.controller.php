@@ -89,18 +89,12 @@ class AuthorController {
         $this->model->editAuthorByID($id, $name, $img, $date, $nationality);
         $this->showAuthor($id, false);
     }
-    private function checkAddForm($name, $year){
-        if ($this->model->getAuthorByName($name)){//Se fija si ya hay un autor con ese nombre.
-            $this->view->showAddAuthor();
-            echo '<h3>Ya existe un Autor con ese nombre. Verifique sus datos</h3>';              
-        }else{ 
-            if ($year>0 && $year<2021){//Se fija que el año sea valido.      
-                return true; 
-            }else{
-                $this->view->showAddAuthor();                
-                echo '<h3>Año ingresado invalido. Solo se permite entre 0 y 2020</h3>';                 
-            }
-        } 
+    private function checkAddForm($name, $year){        
+        if ($year>0 && $year<2021){//Se fija que el año sea valido.      
+            return true; 
+        }
+        $this->view->showAddAuthor();                
+        echo '<h3>Año ingresado invalido. Solo se permite entre 0 y 2020</h3>';
         return false;
     }
 }
