@@ -3,12 +3,13 @@ listaBotonesBorrar.forEach(element => {
     element.addEventListener('click', function () {
         var id = this.id;
         let aceptarBorrado = document.getElementById('aceptar');
-        aceptarBorrado.href=this.classList.contains('libro')?"book":"author"+"/delete/"+id;
+        aceptarBorrado.href=(this.classList.contains('libro')?"book":"author")+"/delete/"+id;
+        console.log(aceptarBorrado.href);
         mostrarModal();
     });
 });
 
-let listaBotonesAceptar = document.querySelectorAll('.aceptar');
+let listaBotonesAceptar = document.querySelectorAll('#aceptar');
 listaBotonesAceptar.forEach(element => {
     element.addEventListener('click', function () {
         cerrarModal();
