@@ -37,7 +37,10 @@
             <div class="error">El autor tiene libros cargados, primero elimine sus libros.</div>
         {/if}
     </div>
-
+    {if $warning}
+        <div class="error">El autor tiene libros cargados, primero elimine sus libros.</div>
+    {/if}
+</div>
 
 </div>
 {if $logged}

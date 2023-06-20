@@ -1,2 +1,2 @@
 usuario: db_login
-conrtaseña: tpewebautores
+contraseña: tpewebautores
