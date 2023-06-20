@@ -63,7 +63,7 @@ switch ($params[0]) {
             case 'addAttempt':
                 $bookController->addBook(); 
                 break;
-            case 'delete':                
+            case 'delete':        
                 $bookController->deleteBook($params[2]); 
                 break;
             case 'edit':                
