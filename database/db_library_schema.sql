@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `autor` (
   `nombre` varchar(50) NOT NULL DEFAULT '',
   `img_autor` text,
   `nacionalidad` varchar(50) NOT NULL DEFAULT '',
-  `fecha_nac` date DEFAULT NOT NULL,
+  `fecha_nac` date NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0;
 

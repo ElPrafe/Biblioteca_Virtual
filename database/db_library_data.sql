@@ -1,6 +1,6 @@
 
-INSERT INTO `autor` (`nombre`, `img_autor`, `nacionalidad`, `fecha_nac`) VALUES
-(0, 'Sin Autor', NULL, 'Ninguna', '1901-01-01'),
+INSERT INTO `autor` (`id`, `nombre`, `img_autor`, `nacionalidad`, `fecha_nac`) VALUES
+
 	(2, 'J. K. Rowling', 'https://cloudfront-us-east-1.images.arcpublishing.com/infobae/XXSK3HAQ4FEXLA335MPFW3LHJY.jpg', 'Reino Unido', '1965-07-31'),
 	(3, 'Friedrich August von Hayek', 'https://capitalismo.ufm.edu/wp-content/uploads/2015/09/Hayek.jpg', 'Austria', '1899-05-08'),
 	(4, 'Jorge Francisco Isidoro Luis Borges', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Jorge_Luis_Borges.jpg/220px-Jorge_Luis_Borges.jpg', 'Afganistán', '1899-08-24'),
@@ -10,7 +10,7 @@ INSERT INTO `autor` (`nombre`, `img_autor`, `nacionalidad`, `fecha_nac`) VALUES
 	(23, 'Edgar Allan Poe', 'https://www.biografiasyvidas.com/biografia/p/fotos/poe_edgar_allan.jpg', 'Estados Unidos', '1809-01-19'),
 	(24, 'Gabriel García Márquez', 'https://historia.nationalgeographic.com.es/medio/2021/03/05/captura-de-pantalla-2021-03-05-a-las-114744_ee7981da_550x696.png', 'Colombia', '1927-03-06');
 
-INSERT INTO `libro` (`titulo`, `descripcion`, `genero`, `img_tapa`, `id_autor`) VALUES
+INSERT INTO `libro` (`id`, `titulo`, `descripcion`, `genero`, `img_tapa`, `id_autor`) VALUES
 	(1, 'Harry Potter y la piedra filosofal', 'Harry Potter y la piedra filosofal (título original en inglés: Harry Potter and the Philosopher’s Stone,1​ excepto en Estados Unidos, donde se tituló Harry Potter and the Sorcerer’s Stone), es el primer libro de la serie literaria Harry Potter, escrito por la autora británica J. K. Rowling en 1997, que supuso además el debut de Rowling como escritora profesional.', 'Novela, Fantasia, Aventura', 'https://bienvenidosalafiesta.com/wp-content/uploads/indices_000000015B.jpg', 2),
 	(2, 'Animales fantásticos y dónde encontrarlos', 'Animales fantásticos y dónde encontrarlos (título original en inglés: Fantastic Beasts and Where to Find Them) es un libro de 2001 escrito por la autora británica J. K. Rowling sobre las criaturas mágicas de Harry Potter.', 'Novela, Fantasia', 'https://www.bubok.com.ar/libro/portadaLibro/266725/6/Animales-fantasticos-y-donde-encontrarlos-en-el-mundo-muggle.jpg', 2),
 	(4, 'Harry Potter y el prisionero de Azkaban', 'arry Potter y el prisionero de Azkaban (título original en inglés: Harry Potter and the Prisoner of Azkaban), es el tercer libro de la serie literaria Harry Potter, escrita por la autora británica J. K. Rowling en 1999.', 'Novela, Fantasia, Aventura', 'https://images.cdn2.buscalibre.com/fit-in/360x360/39/63/39637a733e2fd2db5e112e5996202c91.jpg', 2),
