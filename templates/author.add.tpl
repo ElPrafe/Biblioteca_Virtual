@@ -14,7 +14,7 @@
 
             <span class="form-group d-flex align-items-center"><i class="fa fa-calendar-days bigicon"></i>
                 <input id="form2Example2" name="date" type="date" placeholder="Fecha de nacimiento"
-                    class="form-control">
+                    class="form-control" required>
             </span>
 
             <span class="form-group d-flex align-items-center"><i class="fa fa-image bigicon"></i>

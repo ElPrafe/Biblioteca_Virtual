@@ -17,7 +17,7 @@
 
                 <span class="form-group d-flex align-items-center"><i class="fa fa-calendar-days bigicon"></i>
                     <input id="form2Example2" name="date" value="{$author->fecha_nac}" type="date"
-                        placeholder="Fecha de nacimiento" class="form-control">
+                        placeholder="Fecha de nacimiento" class="form-control" required>
                 </span>
 
 
