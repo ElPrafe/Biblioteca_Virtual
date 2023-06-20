@@ -21,8 +21,8 @@
     <div id="modal" class="modal">
         <div class="modal-content">
             <p id="mensaje_borrar">¿Estás seguro de que deseas eliminar el Autor?</p>
-            <a id="aceptar" role="button" class="btn btn-danger" href="">Aceptar</a>
-            <a role="button" class="btn btn-warning">Cancelar</a>
+            <a id="aceptar" role="button" class="btn btn-success" href="">Aceptar</a>
+            <a role="button" class="btn btn-primary">Cancelar</a>
         </div>
     </div>
     <script src="./js/script.js"></script>
