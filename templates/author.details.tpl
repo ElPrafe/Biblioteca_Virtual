@@ -33,7 +33,7 @@
 
         <img class="img_autor_detail" src="{$author->img_autor}"></img>
     </div>
-    {if !$warning}        
+    {if $warning}        
         <div class="error">El autor tiene libros cargados, primero elimine sus libros.</div>
     {/if}
     </div>

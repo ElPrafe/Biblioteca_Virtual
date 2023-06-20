@@ -48,7 +48,7 @@ class AuthorController {
         $year = explode('-', $date)[0];//Obtengo el año de $date
         if ($this->checkAddForm($name, $year)){
             $id = $this->model->addAuthor($name, $img, $date, $nationality);    
-            $this->showAuthor($id);
+            $this->showAuthor($id,false);
         }
     }
 
@@ -87,18 +87,18 @@ class AuthorController {
         $date = $_POST['date'];
         $nationality = $_POST['nationality'];
         $this->model->editAuthorByID($id, $name, $img, $date, $nationality);
-        $this->showAuthor($id);
+        $this->showAuthor($id, false);
     }
     private function checkAddForm($name, $year){
         if ($this->model->getAuthorByName($name)){//Se fija si ya hay un autor con ese nombre.
             $this->view->showAddAuthor();
             echo '<h3>Ya existe un Autor con ese nombre. Verifique sus datos</h3>';              
         }else{ 
-            if ($year>1900 && $year<2021){//Se fija que el año sea valido.      
+            if ($year>0 && $year<2021){//Se fija que el año sea valido.      
                 return true; 
             }else{
                 $this->view->showAddAuthor();                
-                echo '<h3>Año ingresado invalido. Solo se permite entre 1901 y 2020</h3>';                 
+                echo '<h3>Año ingresado invalido. Solo se permite entre 0 y 2020</h3>';                 
             }
         } 
         return false;
