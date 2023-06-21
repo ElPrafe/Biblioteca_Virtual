@@ -3,7 +3,7 @@ listaBotonesBorrar.forEach(element => {
     element.addEventListener('click', function () {
         var id = this.id;
         let aceptarBorrado = document.getElementById('aceptar');
-        aceptarBorrado.href=(this.classList.contains('libro')?"book":"author")+"/delete/"+id;
+        aceptarBorrado.href = (this.classList.contains('libro') ? "book" : "author") + "/delete/" + id;
         console.log(aceptarBorrado.href);
         mostrarModal();
     });
@@ -36,5 +36,5 @@ function cerrarModal() {
 }
 
 function eliminarEjemplar() {
-    cerrarModal(); 
+    cerrarModal();
 }

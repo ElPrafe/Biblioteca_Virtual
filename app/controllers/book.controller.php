@@ -73,8 +73,12 @@ class BookController {
    
     public function deleteBook($id) {//ver que pasa con sus libros asociados
         $this->authHelper->checkLoggedIn();//Si no esta loggeado, corta la ejecucion
+        $book= $this->model->getBookById($id);
         $this->model->deleteBookById($id);
-        header("Location: {$_SERVER['HTTP_REFERER']}");
+        if (isset($_SERVER['HTTP_REFERER']) and strpos($_SERVER['HTTP_REFERER'],'delete')) 
+            header("Location: ".BASE_URL."author/id/".$book->id_autor);
+        else 
+            header('Location: '.$_SERVER['HTTP_REFERER']);        
     }  
     
     public function editBookById($id) {

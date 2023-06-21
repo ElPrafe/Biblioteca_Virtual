@@ -67,12 +67,9 @@ class AuthorController {
         if ($this->checkBookFromAuthor($id)){
             $this->model->deleteAuthorById($id);
             header("Location: " . BASE_URL);
-        }else{
-            $warning = true;   
-            $this->showAuthor($id, $warning);    
-        }
-       
-        
+        }else{  
+            $this->showAuthor($id, true);    
+        }  
     }  
 
     public function editAuthorScreen($id) {
